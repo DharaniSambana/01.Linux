@@ -1,0 +1,12 @@
+Service management
+---------------------
+systemctl status sshd
+systemctl start nginx
+systemctl stop nginx
+systemctl restart nginx
+systemctl enable nginx
+systemctl disable nginx
+
+nginx - port http - 80
+
+ 

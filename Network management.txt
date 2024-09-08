@@ -1,0 +1,14 @@
+Network management
+--------------------
+ports  check 
+netstat -lt - protocol 
+
+t- transfer control protocol -tcp - internet based
+
+netstart -ltp 
+
+p - process - pid -service
+
+n- port number 
+
+netstat -ltpn

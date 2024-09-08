@@ -1,0 +1,22 @@
+Process management 
+-------------------
+process = a sequence of steps to be executed to complete a task 
+
+in Linux - everything is a process
+for tracking we have PID - process id and PPID -Parent process id
+
+running - process id - yes 
+ps
+ps -ef
+ps -ef | grep nginx
+
+Foregroud process
+sleep 20
+
+background process
+sleep 20 &
+
+top 
+
+kill - if any process is struck
+kill -9 --force kill  order you much stop 

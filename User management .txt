@@ -1,0 +1,159 @@
+User management 
+-------------------
+useradd
+groupadd
+uderdel
+groupdel
+usermod -g
+usermod -aG
+gpassd -d
+id 
+passwd 
+----------------------
+
+useradd ram
+id ram 
+user details in /etc/passwd
+cat /etc/passwd | grep ram
+-- ec2-user id -1000
+-- ram - id - 1001
+-- root - id 0 
+1- 1000 -system users 
+new users created with 1001 ....
+
+groupadd dev
+group details in /etc/grp 
+
+by default - user created - group also created with same name
+
+g- primary group 
+a- append
+G- secondary group 
+usermod -g dev ram
+usermod -ag dev ram -- cant append the primary group
+usermod -g ram ram
+usermod -G dev ram 
+uid=1001(ram) gid=1001(ram) groups=1001(ram),1002(dev)
+usermod -G test ram
+uid=1001(ram) gid=1001(ram) groups=1001(ram),1003(test)
+- removes dev and use test
+usermod -aG dev ram
+uid=1001(ram) gid=1001(ram) groups=1001(ram),1002(dev),1003(test)
+- without removing it will append the secondary group
+
+Usage: gpasswd [option] GROUP
+
+Options:
+  -a, --add USER                add USER to GROUP
+  -d, --delete USER             remove USER from GROUP
+  -h, --help                    display this help message and exit
+  -Q, --root CHROOT_DIR         directory to chroot into
+  -r, --delete-password         remove the GROUP's password
+  -R, --restrict                restrict access to GROUP to its members
+  -M, --members USER,...        set the list of members of GROUP
+
+gpasswd -d ram dev 
+
+
+--------------------
+ram left the company 
+
+gpasswd -d ram dev
+gpasswd -d ram test
+
+usermod -g dev ram
+uid=1001(ram) gid=1002(dev) groups=1002(dev)
+
+gpasswd -d ram dev
+uid=1001(ram) gid=1002(dev) groups=1002(dev)
+
+so you need to override the primary group with his own group 
+usermod -g ram ram
+uid=1001(ram) gid=1001(ram) groups=1001(ram)
+userdel ram
+id ram
+id: ‘ram’: no such user
+
+groupdel test
+groupdel dev
+
+-------------------------------------
+
+useradd user1
+passwd user1
+QWER1234
+
+ec2-user lo unna
+su -switch user
+su user1
+QWER1234
+-- but /home/ec2-user
+give cd ~
+-- pwd - /home/user1
+exit
+
+------------------------------
+
+sudo su - 
+useradd user2
+passwd user2
+-QWER1234
+exit
+
+-----------------------password based user
+new terminal 
+$ ssh user2@44.203.192.81
+user2@44.203.192.81: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+expecting a key --
+by default Linux OS will not allow password based authentication
+only use key based authentication 
+
+sudo su -
+vim /etc/ssh/sshd_config
+password no  --- yes
+systemctl restart sshd
+
+
+$ ssh user2@44.203.192.81
+password - okay 
+
+--------------------------keybased user
+sudo su -
+useradd user3
+id user3
+su user3
+cd ~ -- to home directly of user3 --- /home/user3
+mkdir .ssh
+cd .ssh
+vim authorized_keys
+-- give the user gave public key - related to user
+:wq
+---------------
+chown 400 authorized_keys
+chown 600 .ssh
+- not working 
+------------------
+chown 700 authorized_keys
+chown 600 .ssh
+- working 
+---------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

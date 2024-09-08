@@ -1,0 +1,25 @@
+Package management 
+------------------
+A software have lot of dependencies on  other software 
+rpm - redhat package manager 
+- identify the depencies - first install dependencies and finally install the package
+yum === dnf
+dnf -- new one
+
+urls already configured in Linux 
+--/etc/yum.repo.d --- amazon Linux
+
+dnf install git -y
+dnf remove git -y
+
+dnf list installed - gives the list of softwares installed
+dnf list available 
+dnf list list available | wc -l -- gives count
+
+how can you check cpu info , memory info, os info
+
+cat /proc/cpuinfo - cpu data
+cat /proc/meminfo - memory data
+cat /etc/os-release
+
+

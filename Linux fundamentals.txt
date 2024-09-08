@@ -1,0 +1,74 @@
+Linux fundamentals 
+AWS - LINUX SERVER 
+CONNECT 
+FIREWALL/SECURITY GROUP
+COMMAND SYNTAX
+FEW COMMANDS
+
+AUTHENTICATION 
+--------------
+1- WHAT YOU KNOW - USERNAME AND PASSWORD - PRIVATE SYSTEMS
+2- WHAT YOU HAVE - USERNAME AND TOKENS ( RSA ) - PUBLIC SYSTEMS
+3- WHAT YOU ARE  - USERNAME , FRINGERPRINTS , RETINA, FACE -- MOST SECURE - PUBLIC SYSTEMS
+
+LOCK AND KEY - ONE PAIR
+
+Lock(box) - public
+key - private
+
+key based mechanism
+server or node created --ip address
+- server will have public key 
+- user will have private key
+
+server  - lot of service , every service has protocol 
+
+SSH protocol is used to connect to server with particular port (number)
+SSH-22
+HTTP-80
+HTTPS-443
+MYSQL -3306
+
+SERVER - NO OF PORTS - 0-65535==65536 PORTS
+
+SO TO CONNECT TO SERVER 
+WE NEED TO HAVE 
+- USERNAME
+- IP ADDRESS
+- PRIVATE KEY , PASSWORD
+- PROTOCOL
+- PORT NUMBER
+
+
+TO GENERATE KEYS 
+-----------------
+ssh-keygen -f keypair1
+
+-- gives private key and publickey ( .pub)
+-- key models - ed25519 , rsa
+
+firewall 
+------------------
+create firewall - security group 
+- 
+
+client to connect to Linux server - git bash , mobaxterm,
+
+aws - server created
+ip address-pub ip -44.203.192.81
+ec2-user
+ssh
+22
+private-key
+
+-- to connect 
+------------------------
+
+ssh -i privatekey ec2-user@pubipaddress
+
+-- pwd - /home/ec2user 
+--ls -la --- .ssh directory --- only owner permission - 700 ec2-user ec2-user
+-- authorized_keys --- file --- only owner permission - 600 ec2-user ec2-user
+
+
+

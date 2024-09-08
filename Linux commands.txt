@@ -1,0 +1,246 @@
+pwd - present working directory 
+$ - normal user 
+# - root user 
+clear - to clear things in terminal
+cd - change directory 
+cd / - change to root directory 
+/ - root 
+~ - home directory
+Linux case sensitive 
+
+CRUD - CREATE , READ, UPDATE , DELETE
+
+CREATE
+------
+touch
+vim 
+cat F1 > CONTENTS - OVERRIDE
+cat F1 >> CONTENTS - APPEND
+cd ..
+mkdir
+
+READ
+------
+ls - list files 
+ls -l - long listing 
+d/-/l/s owenergroupother inodenumber owner group date and time modified filename
+ls -la - all hidden files 
+ls -ltr- latest on down
+cat f1
+cat -n f1 -- with numbers for lines
+tac - reverse of contents
+
+DELETE
+------
+rm - both files and directories
+rm -rf --- all files in that directory --recursive , - force
+rm -d - empty directory 
+rmdir - removes only empty directory 
+
+UPDATE
+---------
+mv - rename
+cp - copy
+
+
+ABSOULUTE AND RELATIVE
+-----------------------
+ABSOLUTE - COMPLETE - FROM SCRATCH  /home/ec2-user -- cd /home/ec2-user/devops
+RELATIVE - from 10 to 11 th step -- cd devops/
+
+
+uname - Linux 
+uname -a -- all details 
+uname -o -- os 
+uname -k -- kernel
+
+search - grep
+-----------
+search a word inside the file 
+grep sbin passwd - gives matching line
+grep -i sbin paaswd - all insensitive
+
+download
+-----------
+wget url - file download 
+curl url- content from internet on to the terminal 
+curl -o url -is equal to wget
+curl is used to run the scripts
+
+echo
+-----------
+echo "hello world"
+
+piping 
+-------
+output of first pipe is the input of second pipe
+---  |
+
+cut
+----------
+cut - 
+echo "hello/world" | cut -d"/" -f1   -- gives hello
+echo "hello/world" | cut -d"/" -f1   -- gives world
+we need to count the final fragment
+
+awk
+-----------
+echo "hello/world" | awk -F "/" '{print $1F}'- first 
+echo "hello/world" | awk -F "/" '{print $NF}' - last 
+
+entire user list in Linux server 
+cat /etc/passwd | awk -F ":" '{print $1F}'
+cd /etc
+awk -F ":" '{print $1F}' passwd
+
+cp /etc/passwd passwd4
+awk -F ":" '{print $1F}' passwd4 | grep user
+cat /etc/passwd | awk -F ":" '{print $1F}' | grep user
+user and userid
+cat /etc/passwd | awk -F ":" '{print $1F}' | grep user
+
+head 
+--------------15lines
+head -n 5 -- first 5 line 
+head -n -5 -- first 15-5 = 10 line
+
+tail
+---------------15 line
+tail -n -5 -- last 5 line 
+tail -n -5 --- last 5 lines
+
+in between line 
+---------------
+from 6 to 10 means
+cat -n passwd4 | head -n 10 | tail -n 5	
+
+server log file
+---------------
+/var/log/messages
+tail -f logfilename running log
+
+wc
+---------
+word count 
+wc -l - no of line 
+wc -w - no of words
+wc -m wc- no of characters
+
+EDITOR
+-------------------
+vim, vi, fi editor 
+vim - visually improved
+
+----ESC MODE
+dd- cut one line where cursor is 
+p -paste at next line of cursor
+d10 - 11 lines will be cut from the cusrsor
+p -- it will paste all the line which are cut 
+yy- copy the one line 
+p- paste the copied line
+10p - 10 times paste of the copied or cut line
+u - undo 
+G- start of file 
+shift +g - end of file
+
+
+----COLON MODE - :
+:%d - delete all
+:?hello-- search from bottom
+:/hello-- search from top
+:/morning -- :set ic -- :set noic -- :noh
+:set nu -- :set no nu
+:2- go to that line
+:s/hello/Hello - where cursor is there it will replace
+:3s/good/hello - change good in 3rd ( first occurance ) to hello
+:3s/good/hello/g - change all in 3rd line to hello
+:%s/hello/Hello - all lines in file and only first occurrence
+:set ic
+:%s/h/j/g - all line all occurrences and case sensitive
+
+----INSER MODE - i
+we can edit the data in that file
+
+
+PERMISSIONS
+---------------
+READ -4 r
+WRITE -2 w
+EXECUTE -1 x
+
+user - owner-- u
+group  -g 
+others -o
+
+chmod o+w f1 
+
++ add extra permission
+= overrise the permission 
+- remove the permission
+
+
+chown - change owner 
+chown root f1 
+
+chown -R root:root .ssh ---- for all files in that folder 
+
+--- owner - root and group -ec2-user
+
+chgrp - change group 
+chgrp root f1
+
+-- owner - root and group - root
+
+------------------
+
+free -m  - to check the memory
+	   check ram usage 
+
+how to check disk usage 
+- df - disk files 
+df -hT - human readable and type of files system 
+df -hT -- harddisk usage
+df -h
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
